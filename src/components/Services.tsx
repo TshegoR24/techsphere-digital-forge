@@ -1,67 +1,103 @@
+import { motion } from "framer-motion";
+import { Code, Cloud, Smartphone, Database, Shield, LineChart } from "lucide-react";
 
-import { Code, Briefcase, Users, Pen, Contact } from "lucide-react";
+const services = [
+  {
+    icon: Code,
+    title: "Custom Software Development",
+    description: "Tailored solutions built with cutting-edge technologies to meet your specific business needs.",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Solutions",
+    description: "Scalable and secure cloud infrastructure to power your digital transformation.",
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile App Development",
+    description: "Native and cross-platform mobile applications that deliver exceptional user experiences.",
+  },
+  {
+    icon: Database,
+    title: "Database Management",
+    description: "Efficient data storage, management, and optimization for your business operations.",
+  },
+  {
+    icon: Shield,
+    title: "Cybersecurity",
+    description: "Comprehensive security solutions to protect your digital assets and data.",
+  },
+  {
+    icon: LineChart,
+    title: "Business Intelligence",
+    description: "Data-driven insights and analytics to help you make informed business decisions.",
+  },
+];
 
 const Services = () => {
-  const services = [
-    {
-      icon: Code,
-      title: "Custom Software Development",
-      description: "Tailored software solutions built to meet your specific business requirements, from desktop applications to enterprise systems."
-    },
-    {
-      icon: Briefcase,
-      title: "Web & Mobile App Development",
-      description: "Responsive websites and mobile applications that deliver exceptional user experiences across all platforms and devices."
-    },
-    {
-      icon: Users,
-      title: "CRM Solutions",
-      description: "Customer relationship management systems that help you organize, automate, and synchronize your business processes."
-    },
-    {
-      icon: Pen,
-      title: "Website Maintenance & SEO",
-      description: "Ongoing website maintenance, performance optimization, and search engine optimization to keep your online presence strong."
-    },
-    {
-      icon: Contact,
-      title: "Tech Consulting",
-      description: "Strategic technology consulting to help you make informed decisions about your digital infrastructure and growth."
-    }
-  ];
-
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Our Services
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Our <span className="text-primary">Services</span>
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive digital solutions designed to accelerate your business growth 
-            and enhance your competitive advantage in the digital marketplace.
+            Comprehensive technology solutions to drive your business forward
           </p>
-        </div>
-        
+        </motion.div>
+
+        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div 
-              key={index}
-              className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6">
-                <service.icon className="h-8 w-8 text-blue-600" />
+              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                <service.icon className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">
                 {service.title}
               </h3>
               <p className="text-gray-600 leading-relaxed">
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center"
+        >
+          <div className="bg-gradient-to-r from-primary to-cyan-400 rounded-2xl p-8 shadow-lg">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Ready to Transform Your Business?
+            </h3>
+            <p className="text-cyan-100 mb-6 max-w-2xl mx-auto">
+              Let's discuss how our services can help you achieve your goals and drive growth.
+            </p>
+            <button className="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-primary/10 transition-colors duration-300">
+              Get Started
+            </button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

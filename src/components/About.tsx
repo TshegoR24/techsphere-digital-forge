@@ -1,76 +1,78 @@
+import { motion } from "framer-motion";
+import { Users, Target, Award } from "lucide-react";
 
 const About = () => {
+  const stats = [
+    { number: "10+", label: "Years Experience", icon: Award },
+    { number: "500+", label: "Projects Completed", icon: Target },
+    { number: "100+", label: "Happy Clients", icon: Users },
+  ];
+
   return (
     <section id="about" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            About TechSphere Solutions
-          </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Empowering Businesses Through Innovative Technology
-            </h3>
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              At TechSphere Solutions, we believe that technology should be a catalyst for growth, 
-              not a barrier. Our mission is to empower businesses of all sizes by delivering 
-              innovative, scalable, and efficient digital solutions that drive real results.
-            </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left column - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/about-image.jpg"
+                alt="TechSphere team working"
+                className="object-cover w-full h-full"
+              />
+            </div>
+            {/* Decorative elements */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full opacity-50"></div>
+            <div className="absolute -top-6 -left-6 w-24 h-24 bg-cyan-100 rounded-full opacity-50"></div>
+          </motion.div>
+
+          {/* Right column - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              About <span className="text-primary">TechSphere</span>
+            </h2>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              With years of experience in software development, web technologies, and digital 
-              transformation, we partner with our clients to understand their unique challenges 
-              and create tailored solutions that exceed expectations.
+              We are a team of passionate technologists dedicated to transforming businesses through innovative digital solutions. 
+              Our expertise spans across software development, cloud architecture, and digital transformation strategies.
             </p>
-            
-            <div className="grid grid-cols-2 gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
-                <div className="text-gray-600">Projects Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-                <div className="text-gray-600">Client Satisfaction</div>
-              </div>
+            <p className="text-lg text-gray-600 mb-12 leading-relaxed">
+              With a focus on delivering exceptional value and maintaining the highest standards of quality, 
+              we help organizations navigate the digital landscape and achieve their strategic objectives.
+            </p>
+
+            {/* Stats */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="text-center"
+                >
+                  <div className="flex justify-center mb-4">
+                    <stat.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <div className="text-3xl font-bold text-gray-900 mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-600">{stat.label}</div>
+                </motion.div>
+              ))}
             </div>
-          </div>
-          
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">01</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Innovation First</h4>
-                  <p className="text-gray-600">We stay ahead of technology trends to deliver cutting-edge solutions.</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">02</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Client-Centric</h4>
-                  <p className="text-gray-600">Your success is our priority. We build lasting partnerships.</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">03</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Quality Assured</h4>
-                  <p className="text-gray-600">Rigorous testing and quality control in every project.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

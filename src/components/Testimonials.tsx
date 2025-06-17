@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Testimonials = () => {
   const testimonials = [
@@ -24,50 +27,94 @@ const Testimonials = () => {
     }
   ];
 
+  const [current, setCurrent] = useState(0);
+  const next = () => setCurrent((prev) => (prev + 1) % testimonials.length);
+  const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+
   return (
     <section id="testimonials" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            What Our Clients Say
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Animated Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            What Our <span className="text-primary">Clients Say</span>
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients have to say 
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Don't just take our word for it. Here's what our satisfied clients have to say
             about their experience working with TechSphere Solutions.
           </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div 
-              key={index}
-              className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300"
-            >
-              <div className="mb-6">
-                <div className="flex text-yellow-400 mb-4">
+        </motion.div>
+
+        {/* Carousel */}
+        <div className="relative flex items-center justify-center">
+          <button
+            onClick={prev}
+            className="absolute left-0 z-10 bg-white rounded-full shadow-md p-2 hover:bg-primary/10 transition-colors"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="h-6 w-6 text-primary" />
+          </button>
+
+          <div className="w-full max-w-xl">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.5 }}
+                className="bg-white p-10 rounded-2xl shadow-xl text-center"
+              >
+                <div className="flex justify-center mb-4">
+                  <img
+                    src={testimonials[current].avatar}
+                    alt={testimonials[current].name}
+                    className="w-16 h-16 rounded-full object-cover border-4 border-primary/20 shadow-md"
+                  />
+                </div>
+                <div className="flex justify-center text-yellow-400 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-xl">★</span>
                   ))}
                 </div>
-                <p className="text-gray-600 leading-relaxed italic">
-                  "{testimonial.testimonial}"
+                <p className="text-gray-600 leading-relaxed italic mb-6">
+                  "{testimonials[current].testimonial}"
                 </p>
-              </div>
-              
-              <div className="flex items-center">
-                <img 
-                  src={testimonial.avatar} 
-                  alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
-                />
-                <div>
-                  <h4 className="font-bold text-gray-900">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-600">{testimonial.position}</p>
-                  <p className="text-sm text-blue-600">{testimonial.company}</p>
-                </div>
-              </div>
-            </div>
+                <h4 className="font-bold text-gray-900 text-lg">
+                  {testimonials[current].name}
+                </h4>
+                <p className="text-sm text-gray-600">{testimonials[current].position}</p>
+                <p className="text-sm text-primary">{testimonials[current].company}</p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <button
+            onClick={next}
+            className="absolute right-0 z-10 bg-white rounded-full shadow-md p-2 hover:bg-primary/10 transition-colors"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="h-6 w-6 text-primary" />
+          </button>
+        </div>
+
+        {/* Dots navigation */}
+        <div className="flex justify-center mt-8 gap-2">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrent(idx)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                idx === current ? "bg-primary" : "bg-primary/20"
+              }`}
+              aria-label={`Go to testimonial ${idx + 1}`}
+            />
           ))}
         </div>
       </div>

@@ -1,9 +1,9 @@
-
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail } from "lucide-react";
+import { Mail, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,13 +16,10 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     toast({
       title: "Message Sent!",
       description: "Thank you for your interest. We'll get back to you within 24 hours.",
     });
-    
-    // Reset form
     setFormData({ name: '', email: '', company: '', message: '' });
   };
 
@@ -34,30 +31,40 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-gradient-to-br from-white to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Get In Touch
+        {/* Animated Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            Get <span className="text-primary">In Touch</span>
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Ready to transform your business with innovative technology solutions? 
             Let's discuss your project and explore how we can help you achieve your goals.
           </p>
-        </div>
-        
+        </motion.div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
             <h3 className="text-2xl font-bold text-gray-900 mb-8">
               Let's Start a Conversation
             </h3>
-            
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="h-6 w-6 text-blue-600" />
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                  <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Email Us</h4>
@@ -65,10 +72,9 @@ const Contact = () => {
                   <p className="text-gray-600">info@techspheresolutions.com</p>
                 </div>
               </div>
-              
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span className="text-blue-600 font-bold">📍</span>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                  <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Our Location</h4>
@@ -76,10 +82,9 @@ const Contact = () => {
                   <p className="text-gray-600">San Francisco, CA 94105</p>
                 </div>
               </div>
-              
               <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span className="text-blue-600 font-bold">⏰</span>
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                  <Clock className="h-6 w-6 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Business Hours</h4>
@@ -88,10 +93,15 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-          </div>
-          
+          </motion.div>
           {/* Contact Form */}
-          <div className="bg-gray-50 p-8 rounded-2xl">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-white/80 p-10 rounded-2xl shadow-xl backdrop-blur-md"
+          >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -123,7 +133,6 @@ const Contact = () => {
                   />
                 </div>
               </div>
-              
               <div>
                 <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
                   Company Name
@@ -137,7 +146,6 @@ const Contact = () => {
                   className="w-full"
                 />
               </div>
-              
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Project Details *
@@ -149,19 +157,18 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                   placeholder="Tell us about your project requirements..."
                 />
               </div>
-              
               <Button 
                 type="submit" 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3"
+                className="w-full bg-gradient-to-r from-primary to-cyan-400 hover:from-primary/80 hover:to-cyan-300 text-white py-3 rounded-full shadow-lg text-lg"
               >
                 Send Message
               </Button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

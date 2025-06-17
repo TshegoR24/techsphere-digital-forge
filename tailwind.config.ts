@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -29,7 +28,9 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: '#00b6ff',
+					dark: '#006c99',
+					light: '#4dd0ff',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
@@ -45,7 +46,7 @@ export default {
 					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
+					DEFAULT: '#00b6ff',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
 				popover: {
@@ -65,7 +66,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				blue: {
+					50: "#e6f7ff",
+					100: "#b3eaff",
+					200: "#80ddff",
+					300: "#4dd0ff",
+					400: "#1ac3ff",
+					500: "#00b6ff",
+					600: "#0091cc",
+					700: "#006c99",
+					800: "#004766",
+					900: "#002233",
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -104,7 +117,12 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.6s ease-out'
-			}
+			},
+			gradientColorStops: theme => ({
+				...theme('colors'),
+				'brand-blue': '#00b6ff',
+				'brand-blue-dark': '#006c99',
+			}),
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
