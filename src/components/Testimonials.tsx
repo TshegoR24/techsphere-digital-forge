@@ -1,32 +1,32 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Users, Star } from "lucide-react";
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    position: "CEO, RetailPro Inc.",
+    company: "Retail",
+    testimonial: "Tech Sphere delivered a stunning e-commerce platform that increased our online sales by 40%. Their team is professional, creative, and always on time.",
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Michael Chen",
+    position: "CTO, HealthFirst Clinics",
+    company: "Healthcare",
+    testimonial: "The custom healthcare management system built by Tech Sphere has streamlined our operations and improved patient satisfaction. Highly recommended!",
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+  },
+  {
+    name: "Emily Rodriguez",
+    position: "Head of Marketing, NextGen Solutions",
+    company: "Technology",
+    testimonial: "Our new corporate website and branding exceeded expectations. Tech Sphere's attention to detail and technical expertise set them apart.",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+  }
+];
 
 const Testimonials = () => {
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      position: "CEO, RetailPlus",
-      company: "E-commerce",
-      testimonial: "TechSphere Solutions transformed our online presence completely. Their e-commerce platform increased our sales by 300% in just six months. The team's attention to detail and commitment to excellence is outstanding.",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      name: "Michael Chen",
-      position: "CTO, HealthTech Pro",
-      company: "Healthcare",
-      testimonial: "The custom software they developed for our healthcare facility has streamlined our operations significantly. Patient management is now effortless, and our staff productivity has improved dramatically.",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
-    },
-    {
-      name: "Emily Rodriguez",
-      position: "Marketing Director, GrowthCorp",
-      company: "Marketing",
-      testimonial: "Their CRM solution has revolutionized how we manage our customer relationships. The insights and automation features have helped us increase our conversion rates by 45%. Highly recommended!",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
-    }
-  ];
-
   const [current, setCurrent] = useState(0);
   const next = () => setCurrent((prev) => (prev + 1) % testimonials.length);
   const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -34,6 +34,23 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="py-20 bg-gray-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Metrics Bar */}
+        <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+          <div className="flex items-center bg-white rounded-xl shadow-md px-6 py-4 gap-3">
+            <Users className="h-6 w-6 text-primary" />
+            <div>
+              <span className="block text-xl font-bold text-gray-900">100+</span>
+              <span className="block text-sm text-gray-500">Happy Clients</span>
+            </div>
+          </div>
+          <div className="flex items-center bg-white rounded-xl shadow-md px-6 py-4 gap-3">
+            <Star className="h-6 w-6 text-yellow-400" />
+            <div>
+              <span className="block text-xl font-bold text-gray-900">5-Star</span>
+              <span className="block text-sm text-gray-500">Client Reviews</span>
+            </div>
+          </div>
+        </div>
         {/* Animated Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,8 +63,7 @@ const Testimonials = () => {
             What Our <span className="text-primary">Clients Say</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied clients have to say
-            about their experience working with TechSphere Solutions.
+            Hear from business leaders who have partnered with Tech Sphere for their digital transformation.
           </p>
         </motion.div>
 

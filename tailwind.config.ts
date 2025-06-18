@@ -7,6 +7,8 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+		"./index.html",
+		"./src/**/*.{js,jsx}",
 	],
 	prefix: "",
 	theme: {
@@ -20,15 +22,19 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
+				heading: ['Montserrat', 'Inter', 'sans-serif'],
+				mono: ['Fira Mono', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
+				background: {
+					DEFAULT: '#F5F7FA',
+				},
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#00b6ff',
+					DEFAULT: '#1A237E',
 					dark: '#006c99',
 					light: '#4dd0ff',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -42,11 +48,11 @@ export default {
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
 				muted: {
-					DEFAULT: 'hsl(var(--muted))',
+					DEFAULT: '#A0AEC0',
 					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
-					DEFAULT: '#00b6ff',
+					DEFAULT: '#00B8D9',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
 				popover: {
@@ -66,6 +72,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				surface: {
+					DEFAULT: '#FFFFFF',
+				},
+				text: {
+					DEFAULT: '#22223B',
+				},
+				success: {
+					DEFAULT: '#2DD4BF',
+				},
+				warning: {
+					DEFAULT: '#F59E42',
 				},
 				blue: {
 					50: "#e6f7ff",

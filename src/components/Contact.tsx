@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Mail, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
 
@@ -31,9 +31,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-white to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Animated Section Header */}
+    <section id="contact" className="relative py-24 bg-background">
+      {/* SVG Top Divider */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-0">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16">
+          <path
+            fill="#FFFFFF"
+            d="M0,40 C360,80 1080,0 1440,32 L1440,0 L0,0 Z"
+          />
+        </svg>
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,133 +49,66 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Get <span className="text-primary">In Touch</span>
+          <h2 className="text-4xl font-heading font-extrabold text-primary mb-4">
+            Get <span className="text-accent">In Touch</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your business with innovative technology solutions? 
-            Let's discuss your project and explore how we can help you achieve your goals.
+          <p className="text-xl font-sans text-text max-w-3xl mx-auto">
+            Ready to start your next project or have questions about our services? Contact us today and let's build something great together.
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
+        {/* Split Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-8 bg-surface rounded-2xl shadow-xl border border-accent/10 p-10"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">
-              Let's Start a Conversation
-            </h3>
-            <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
-                  <Mail className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Email Us</h4>
-                  <p className="text-gray-600">hello@techspheresolutions.com</p>
-                  <p className="text-gray-600">info@techspheresolutions.com</p>
-                </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                <Mail className="h-6 w-6 text-accent" />
               </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
-                  <MapPin className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Our Location</h4>
-                  <p className="text-gray-600">123 Tech Street, Innovation District</p>
-                  <p className="text-gray-600">San Francisco, CA 94105</p>
-                </div>
+              <div>
+                <h4 className="font-semibold text-primary mb-2 font-heading">Email Us</h4>
+                <p className="text-text font-sans">contact@techsphere.com</p>
+                <p className="text-text font-sans">info@techsphere.com</p>
               </div>
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
-                  <Clock className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-2">Business Hours</h4>
-                  <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-                  <p className="text-gray-600">Weekend consultations available</p>
-                </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                <Phone className="h-6 w-6 text-accent" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-primary mb-2 font-heading">Call Us</h4>
+                <p className="text-text font-sans">+1 (555) 123-4567</p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                <MapPin className="h-6 w-6 text-accent" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-primary mb-2 font-heading">Our Location</h4>
+                <p className="text-text font-sans">123 Tech Street, Innovation District</p>
+                <p className="text-text font-sans">San Francisco, CA 94105</p>
               </div>
             </div>
           </motion.div>
-          {/* Contact Form */}
+          {/* Contact Form Placeholder */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-white/80 p-10 rounded-2xl shadow-xl backdrop-blur-md"
+            className="bg-surface rounded-2xl shadow-xl border border-accent/10 p-10 flex flex-col gap-6"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name *
-                  </label>
-                  <Input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
-                  </label>
-                  <Input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full"
-                  />
-                </div>
-              </div>
-              <div>
-                <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                  Company Name
-                </label>
-                <Input
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                  className="w-full"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Project Details *
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="Tell us about your project requirements..."
-                />
-              </div>
-              <Button 
-                type="submit" 
-                className="w-full bg-gradient-to-r from-primary to-cyan-400 hover:from-primary/80 hover:to-cyan-300 text-white py-3 rounded-full shadow-lg text-lg"
-              >
-                Send Message
-              </Button>
-            </form>
+            <h3 className="text-2xl font-heading font-bold text-primary mb-4">Send Us a Message</h3>
+            <input className="rounded-lg border border-muted px-4 py-3 font-sans text-text focus:ring-2 focus:ring-accent outline-none" placeholder="Your Name" />
+            <input className="rounded-lg border border-muted px-4 py-3 font-sans text-text focus:ring-2 focus:ring-accent outline-none" placeholder="Your Email" />
+            <textarea className="rounded-lg border border-muted px-4 py-3 font-sans text-text focus:ring-2 focus:ring-accent outline-none min-h-[120px]" placeholder="Your Message" />
+            <button className="bg-gradient-to-r from-primary to-accent text-white font-heading rounded-full px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all duration-300 mt-2">Send Message</button>
           </motion.div>
         </div>
       </div>

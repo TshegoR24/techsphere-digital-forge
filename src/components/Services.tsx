@@ -1,43 +1,61 @@
 import { motion } from "framer-motion";
-import { Code, Cloud, Smartphone, Database, Shield, LineChart } from "lucide-react";
+import { Code, Monitor, Layers, PenTool, Users } from "lucide-react";
 
 const services = [
   {
+    icon: Monitor,
+    title: "Website Design",
+    description: "Modern, responsive, and visually stunning websites tailored to your brand.",
+  },
+  {
     icon: Code,
-    title: "Custom Software Development",
-    description: "Tailored solutions built with cutting-edge technologies to meet your specific business needs.",
+    title: "Web Development",
+    description: "Robust, scalable web applications using the latest technologies and best practices.",
   },
   {
-    icon: Cloud,
-    title: "Cloud Solutions",
-    description: "Scalable and secure cloud infrastructure to power your digital transformation.",
+    icon: Layers,
+    title: "Software Engineering",
+    description: "Custom software solutions to streamline your business operations and drive growth.",
   },
   {
-    icon: Smartphone,
-    title: "Mobile App Development",
-    description: "Native and cross-platform mobile applications that deliver exceptional user experiences.",
+    icon: PenTool,
+    title: "UI/UX Design",
+    description: "Intuitive, user-centered interfaces that deliver exceptional digital experiences.",
   },
   {
-    icon: Database,
-    title: "Database Management",
-    description: "Efficient data storage, management, and optimization for your business operations.",
-  },
-  {
-    icon: Shield,
-    title: "Cybersecurity",
-    description: "Comprehensive security solutions to protect your digital assets and data.",
-  },
-  {
-    icon: LineChart,
-    title: "Business Intelligence",
-    description: "Data-driven insights and analytics to help you make informed business decisions.",
+    icon: Users,
+    title: "Digital Consulting",
+    description: "Expert advice and strategy to help you navigate digital transformation and achieve your goals.",
   },
 ];
 
+const staggerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="relative py-24 bg-background">
+      {/* SVG Top Divider */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-0">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16">
+          <path
+            fill="#FFFFFF"
+            d="M0,40 C360,80 1080,0 1440,32 L1440,0 L0,0 Z"
+          />
+        </svg>
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -46,37 +64,41 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Our <span className="text-primary">Services</span>
+          <h2 className="text-4xl font-heading font-extrabold text-primary mb-4">
+            Our <span className="text-accent">Services</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive technology solutions to drive your business forward
+          <p className="text-xl font-sans text-text max-w-3xl mx-auto">
+            Comprehensive digital solutions to elevate your business and accelerate growth.
           </p>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={staggerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              variants={cardVariants}
+              className="bg-surface rounded-2xl p-10 shadow-xl border border-accent/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group flex flex-col items-start"
+              style={{ zIndex: 1 + services.length - index }}
             >
-              <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
-                <service.icon className="h-7 w-7 text-primary" />
+              <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+                <service.icon className="h-7 w-7 text-accent" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">
+              <h3 className="text-2xl font-heading font-bold text-primary mb-4">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-text font-sans leading-relaxed">
                 {service.description}
               </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA Section */}
         <motion.div

@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "Course",
+      "name": "Intro to Web Development",
+      "description": "Learn the basics of HTML, CSS, and JavaScript to build your first website.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Tech Sphere",
+        "sameAs": "https://techsphere.com"
+      },
+      "url": "https://techsphere.com/courses/web-development",
+      "creator": {
+        "@type": "Person",
+        "name": "Jane Doe"
+      }
+    },
+    {
+      "@type": "Course",
+      "name": "Advanced React & TypeScript",
+      "description": "Master advanced concepts in React and TypeScript for scalable web apps.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Tech Sphere",
+        "sameAs": "https://techsphere.com"
+      },
+      "url": "https://techsphere.com/courses/advanced-react-typescript",
+      "creator": {
+        "@type": "Person",
+        "name": "John Smith"
+      }
+    }
+  ]
+} 
