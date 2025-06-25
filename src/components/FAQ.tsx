@@ -1,61 +1,56 @@
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import { useState } from "react";
 
 const faqs = [
   {
-    question: "How do I enroll in a course?",
-    answer: [
-      "Browse our course catalog and select a course.",
-      "Click 'Start Learning Free' or 'View Course'.",
-      "Sign up or log in to access course materials.",
-    ],
+    q: "What services do you offer?",
+    a: "We provide web and software development, UI/UX design, and digital consulting for businesses of all sizes.",
   },
   {
-    question: "Are there any free courses?",
-    answer: [
-      "Yes, many beginner courses are free to start.",
-      "Look for the 'Free' tab in the course showcase.",
-    ],
+    q: "Who will I work with?",
+    a: "You'll work directly with our founder, Tshegofats Rakoma, ensuring clear communication and personal attention.",
   },
   {
-    question: "How can I become an instructor?",
-    answer: [
-      "Click 'Start Teaching' in the Instructors section.",
-      "Submit your profile and expertise for review.",
-      "Get approved and publish your first course.",
-    ],
+    q: "How long does a typical project take?",
+    a: "Most projects are completed within 2-6 weeks, depending on scope and requirements.",
   },
   {
-    question: "What support is available for students?",
-    answer: [
-      "Access to community forums and Q&A.",
-      "Direct messaging with instructors.",
-      "Responsive email support.",
-    ],
+    q: "What is your pricing model?",
+    a: "We offer transparent, project-based pricing with no hidden fees. You'll receive a detailed quote before we start.",
+  },
+  {
+    q: "How do I get started?",
+    a: "Just reach out via our contact form or email, and we'll schedule a free consultation to discuss your needs.",
   },
 ];
 
-const FAQ = () => (
-  <section id="faq" className="py-20 bg-gray-50">
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">Frequently Asked <span className="text-primary">Questions</span></h2>
-      <Accordion type="single" collapsible className="space-y-4">
-        {faqs.map((faq, i) => (
-          <AccordionItem key={i} value={`faq-${i}`} className="bg-white rounded-2xl shadow-md">
-            <AccordionTrigger className="text-lg font-semibold px-6 py-4">
-              {faq.question}
-            </AccordionTrigger>
-            <AccordionContent className="px-6 pb-4">
-              <ul className="list-disc list-inside space-y-1 text-gray-700">
-                {faq.answer.map((point, j) => (
-                  <li key={j}>{point}</li>
-                ))}
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-    </div>
-  </section>
-);
+const FAQ = () => {
+  const [open, setOpen] = useState<number | null>(null);
+  return (
+    <section className="py-20 bg-surface">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-heading font-extrabold text-primary mb-8 text-center">Frequently Asked Questions</h2>
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <div key={i} className="border border-accent/10 rounded-xl bg-background shadow-sm">
+              <button
+                className="w-full text-left px-6 py-4 font-heading text-lg text-primary flex justify-between items-center focus:outline-none"
+                onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
+              >
+                {faq.q}
+                <span className={`ml-4 transition-transform ${open === i ? 'rotate-180' : ''}`}>▼</span>
+              </button>
+              {open === i && (
+                <div className="px-6 pb-4 text-text font-sans animate-fade-in">
+                  {faq.a}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default FAQ; 

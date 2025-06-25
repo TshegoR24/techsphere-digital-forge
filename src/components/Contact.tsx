@@ -72,8 +72,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-primary mb-2 font-heading">Email Us</h4>
-                <p className="text-text font-sans">contact@techsphere.com</p>
-                <p className="text-text font-sans">info@techsphere.com</p>
+                <a href="mailto:ts.techsphere@gmail.com" className="text-accent font-sans hover:underline">ts.techsphere@gmail.com</a>
               </div>
             </div>
             <div className="flex items-start space-x-4">
@@ -82,17 +81,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-primary mb-2 font-heading">Call Us</h4>
-                <p className="text-text font-sans">+1 (555) 123-4567</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
-                <MapPin className="h-6 w-6 text-accent" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-primary mb-2 font-heading">Our Location</h4>
-                <p className="text-text font-sans">123 Tech Street, Innovation District</p>
-                <p className="text-text font-sans">San Francisco, CA 94105</p>
+                <a href="tel:0682328258" className="text-accent font-sans hover:underline">068 232 8258</a>
               </div>
             </div>
           </motion.div>

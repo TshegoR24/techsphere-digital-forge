@@ -3,6 +3,14 @@ import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
+    title: "Seamless Travel",
+    client: "Travel Platform",
+    description: "A modern travel booking platform with seamless user experience, real-time booking capabilities, and comprehensive travel management features.",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=300&fit=crop",
+    alt: "Seamless Travel platform screenshot",
+    link: "https://seamlesstravel.netlify.app/",
+  },
+  {
     title: "E-Commerce Platform Redesign",
     client: "RetailPro Inc.",
     description: "A modern, scalable e-commerce platform with custom UI/UX and seamless payment integration.",
