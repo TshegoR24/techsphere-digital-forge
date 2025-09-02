@@ -72,9 +72,11 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-primary/70">
-            © 2024 TechSphere Solutions. All rights reserved. | 
-            <a href="#" className="hover:text-primary transition-colors ml-1">Privacy Policy</a> |
-            <a href="#" className="hover:text-primary transition-colors ml-1">Terms of Service</a>
+            © 2024 TechSphere Solutions. All rights reserved. |
+            <a href="/privacy" className="hover:text-primary transition-colors ml-1">Privacy Policy</a> |
+            <a href="/terms" className="hover:text-primary transition-colors ml-1">Terms of Service</a> |
+            <a href="/pricing" className="hover:text-primary transition-colors ml-1">Pricing</a> |
+            <a href="/refund" className="hover:text-primary transition-colors ml-1">Refund Policy</a>
           </p>
         </div>
       </div>
