@@ -47,6 +47,10 @@ const Navigation = () => {
     { href: "#about", label: "About" },
     { href: "#services", label: "Services" },
     { href: "#portfolio", label: "Portfolio" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/privacy", label: "Privacy" },
+    { href: "/terms", label: "Terms" },
+    { href: "/refund", label: "Refund" },
     { href: "#contact", label: "Contact" },
   ];
 
