@@ -139,8 +139,9 @@ const Hero = () => {
             <Button
               size="lg"
               className="bg-gradient-to-r from-primary to-accent text-background font-heading font-semibold px-8 py-6 text-base rounded-full glow-sphere hover:opacity-90 transition-opacity"
+              asChild
             >
-              Start Your Project
+              <a href="#contact">Start Your Project</a>
             </Button>
             <Button
               variant="outline"

@@ -1,17 +1,20 @@
-import { MessageCircle } from "lucide-react";
-
-const FloatingCTA = () => (
-  <button
-    onClick={() => {
-      const el = document.getElementById("contact");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }}
-    className="fixed z-50 bottom-6 right-6 bg-gradient-to-r from-primary to-accent text-background px-6 py-3 rounded-full glow-ion flex items-center gap-2 font-heading font-semibold text-base hover:opacity-90 transition-all focus:outline-none focus:ring-4 focus:ring-accent/30"
-    aria-label="Let's Talk"
-  >
-    <MessageCircle className="w-6 h-6" />
-    Let's Talk
-  </button>
+const WhatsAppIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 32 32" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 2.667c-7.363 0-13.334 5.97-13.334 13.333 0 2.351.615 4.646 1.782 6.667L2.667 29.333l6.815-1.787a13.27 13.27 0 0 0 6.522 1.72h.006c7.362 0 13.333-5.97 13.333-13.333s-5.971-13.266-13.339-13.266Zm0 24.4h-.005a11.06 11.06 0 0 1-5.635-1.542l-.404-.24-4.045 1.061 1.08-3.943-.264-.406a11.02 11.02 0 0 1-1.692-5.897c0-6.107 4.972-11.078 11.084-11.078 2.96 0 5.744 1.154 7.838 3.25a11.01 11.01 0 0 1 3.242 7.834c-.002 6.108-4.973 11.077-11.087 11.077l.014-.116Zm6.076-8.302c-.333-.167-1.97-.973-2.276-1.083-.306-.111-.528-.167-.75.166-.222.334-.86 1.084-1.055 1.306-.194.223-.389.25-.722.084-.333-.167-1.406-.518-2.678-1.653-.99-.883-1.659-1.974-1.853-2.307-.194-.334-.02-.514.146-.68.15-.15.334-.39.5-.585.167-.195.222-.334.333-.556.111-.222.056-.417-.028-.584-.083-.167-.75-1.806-1.028-2.474-.27-.65-.545-.562-.75-.573-.194-.01-.417-.012-.639-.012a1.23 1.23 0 0 0-.889.417c-.306.334-1.167 1.14-1.167 2.78 0 1.64 1.195 3.223 1.362 3.446.166.222 2.353 3.593 5.7 5.038.796.344 1.418.55 1.902.703.799.254 1.526.218 2.101.132.641-.096 1.97-.806 2.248-1.584.278-.778.278-1.445.195-1.584-.084-.14-.306-.222-.639-.39Z" />
+  </svg>
 );
 
-export default FloatingCTA; 
+const FloatingCTA = () => (
+  <a
+    href="https://wa.me/27682328258"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="fixed z-50 bottom-6 right-6 bg-gradient-to-r from-primary to-accent text-background px-6 py-3 rounded-full glow-ion flex items-center gap-2 font-heading font-semibold text-base hover:opacity-90 transition-all focus:outline-none focus:ring-4 focus:ring-accent/30"
+    aria-label="Chat on WhatsApp"
+  >
+    <WhatsAppIcon className="w-6 h-6" />
+    Let's Talk
+  </a>
+);
+
+export default FloatingCTA;

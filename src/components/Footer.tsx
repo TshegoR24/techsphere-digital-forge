@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Twitter, Github } from "lucide-react";
+import { Github } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -19,27 +19,18 @@ const Footer = () => {
               className="h-12 w-12 mb-4 rounded-full ring-2 ring-primary/40 inline-block"
             />
             <h3 className="text-2xl font-heading font-semibold text-text mb-4">TechSphere Solutions</h3>
-            <p className="text-muted mb-6 max-w-md leading-relaxed">
+            <p className="text-muted mb-4 max-w-md leading-relaxed">
               Empowering businesses through innovative technology solutions.
               We transform ideas into powerful digital experiences that drive growth and success.
             </p>
+            <a href="mailto:ts.techsphere@gmail.com" className="inline-block text-accent hover:underline mb-4">
+              ts.techsphere@gmail.com
+            </a>
             <div className="flex space-x-4 mt-4">
               <a
-                href="#"
-                aria-label="LinkedIn"
-                className="text-muted hover:text-accent transition-colors rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-accent"
-              >
-                <Linkedin className="h-6 w-6" />
-              </a>
-              <a
-                href="#"
-                aria-label="Twitter"
-                className="text-muted hover:text-accent transition-colors rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-accent"
-              >
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a
-                href="#"
+                href="https://github.com/TshegoR24"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="GitHub"
                 className="text-muted hover:text-accent transition-colors rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-accent"
               >

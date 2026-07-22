@@ -107,9 +107,12 @@ const Services = () => {
             <p className="text-background/80 mb-6 max-w-2xl mx-auto">
               Let's discuss how our services can help you achieve your goals and drive growth.
             </p>
-            <button className="bg-background text-text px-8 py-3 rounded-full font-heading font-semibold hover:bg-background/80 transition-colors duration-300">
+            <a
+              href="#contact"
+              className="inline-block bg-background text-text px-8 py-3 rounded-full font-heading font-semibold hover:bg-background/80 transition-colors duration-300"
+            >
               Get Started
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>

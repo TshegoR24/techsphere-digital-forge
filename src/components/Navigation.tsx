@@ -59,8 +59,8 @@ const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <Button className="bg-gradient-to-r from-primary to-accent text-background font-heading font-semibold rounded-full px-6 hover:opacity-90 transition-opacity">
-              Get Started
+            <Button className="bg-gradient-to-r from-primary to-accent text-background font-heading font-semibold rounded-full px-6 hover:opacity-90 transition-opacity" asChild>
+              <a href="/#contact">Get Started</a>
             </Button>
           </div>
 
@@ -95,8 +95,8 @@ const Navigation = () => {
                 </a>
               ))}
               <div className="px-2 pt-2">
-                <Button className="w-full bg-gradient-to-r from-primary to-accent text-background font-heading font-semibold rounded-full">
-                  Get Started
+                <Button className="w-full bg-gradient-to-r from-primary to-accent text-background font-heading font-semibold rounded-full" asChild>
+                  <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)}>Get Started</a>
                 </Button>
               </div>
             </div>
