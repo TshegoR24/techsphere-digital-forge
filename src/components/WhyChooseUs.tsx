@@ -24,18 +24,19 @@ const points = [
 ];
 
 const WhyChooseUs = () => (
-  <section className="py-20 bg-background">
+  <section className="py-20 md:py-28 bg-background">
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 className="text-4xl font-heading font-extrabold text-primary mb-6">Why Choose <span className="text-accent">Tech Sphere?</span></h2>
-      <p className="text-xl font-sans text-text mb-12 max-w-2xl mx-auto">
+      <span className="inline-block text-xs font-mono text-accent tracking-widest uppercase mb-4">// why techsphere</span>
+      <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-text mb-6">Built different, <span className="text-accent">by design</span></h2>
+      <p className="text-lg text-muted mb-14 max-w-2xl mx-auto">
         We're committed to delivering exceptional results for every client, every time.
       </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {points.map((p, i) => (
-          <div key={i} className="bg-surface rounded-2xl shadow-xl border border-accent/10 p-8 flex flex-col items-center">
+          <div key={i} className="bg-surface rounded-2xl border border-steel/60 p-8 flex flex-col items-center hover:border-primary/50 transition-colors duration-300">
             {p.icon}
-            <h3 className="text-lg font-heading font-bold text-primary mb-2">{p.title}</h3>
-            <p className="text-text font-sans text-sm">{p.desc}</p>
+            <h3 className="text-lg font-heading font-semibold text-text mb-2">{p.title}</h3>
+            <p className="text-muted text-sm leading-relaxed">{p.desc}</p>
           </div>
         ))}
       </div>

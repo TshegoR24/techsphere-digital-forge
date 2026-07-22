@@ -60,16 +60,7 @@ const cardVariants = {
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="relative py-24 bg-surface">
-      {/* SVG Top Divider */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-0">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-16">
-          <path
-            fill="#F5F7FA"
-            d="M0,40 C360,0 1080,80 1440,32 L1440,0 L0,0 Z"
-          />
-        </svg>
-      </div>
+    <section id="portfolio" className="relative py-24 md:py-28 bg-surface border-y border-steel/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Animated Section Header */}
         <motion.div
@@ -79,10 +70,11 @@ const Portfolio = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-heading font-extrabold text-primary mb-4">
+          <span className="inline-block text-xs font-mono text-accent tracking-widest uppercase mb-4">// 03 · portfolio</span>
+          <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-text mb-4">
             Our <span className="text-accent">Portfolio</span>
           </h2>
-          <p className="text-xl font-sans text-text max-w-3xl mx-auto">
+          <p className="text-lg text-muted max-w-3xl mx-auto">
             Explore some of our recent projects and see how we help businesses succeed with innovative digital solutions.
           </p>
         </motion.div>
@@ -93,13 +85,13 @@ const Portfolio = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {projects.map((project, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
-              className="relative bg-surface rounded-2xl shadow-xl border border-accent/10 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group cursor-pointer flex flex-col overflow-hidden"
+              className="relative bg-background rounded-2xl border border-steel/60 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 group cursor-pointer flex flex-col overflow-hidden"
               style={{ zIndex: 1 + projects.length - index }}
             >
               {/* Image with overlay and zoom */}
@@ -110,13 +102,13 @@ const Portfolio = () => {
                   className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-accent/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 {/* Optional: View Project button overlay */}
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-background text-accent px-4 py-2 rounded-full font-semibold flex items-center gap-2 shadow-lg hover:bg-accent/10"
+                  className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-surface text-accent px-4 py-2 rounded-full font-semibold flex items-center gap-2 border border-steel/60 hover:bg-background"
                 >
                   View Project <ExternalLink className="h-4 w-4" />
                 </a>
@@ -124,13 +116,13 @@ const Portfolio = () => {
               {/* Card Content */}
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="text-2xl font-heading font-bold text-primary mb-2">
+                  <h3 className="text-2xl font-heading font-semibold text-text mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-muted mb-2 text-sm font-sans">
-                    <span className="font-semibold">{project.client}</span>
+                  <p className="text-accent mb-2 text-sm font-mono">
+                    {project.client}
                   </p>
-                  <p className="text-text font-sans mb-4 leading-relaxed min-h-[56px]">
+                  <p className="text-muted mb-4 leading-relaxed min-h-[56px]">
                     {project.description}
                   </p>
                 </div>

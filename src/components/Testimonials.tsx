@@ -32,22 +32,22 @@ const Testimonials = () => {
   const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
-    <section id="testimonials" className="py-20 bg-gray-50">
+    <section id="testimonials" className="py-20 md:py-28 bg-surface border-y border-steel/60">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Metrics Bar */}
-        <div className="flex flex-col sm:flex-row justify-center gap-6 mb-12">
-          <div className="flex items-center bg-white rounded-xl shadow-md px-6 py-4 gap-3">
-            <Users className="h-6 w-6 text-primary" />
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+          <div className="flex items-center bg-background rounded-xl border border-steel/60 px-6 py-4 gap-3">
+            <Users className="h-6 w-6 text-accent" />
             <div>
-              <span className="block text-xl font-bold text-gray-900">100+</span>
-              <span className="block text-sm text-gray-500">Happy Clients</span>
+              <span className="block text-xl font-heading font-semibold text-text">100+</span>
+              <span className="block text-sm text-muted">Happy Clients</span>
             </div>
           </div>
-          <div className="flex items-center bg-white rounded-xl shadow-md px-6 py-4 gap-3">
+          <div className="flex items-center bg-background rounded-xl border border-steel/60 px-6 py-4 gap-3">
             <Star className="h-6 w-6 text-yellow-400" />
             <div>
-              <span className="block text-xl font-bold text-gray-900">5-Star</span>
-              <span className="block text-sm text-gray-500">Client Reviews</span>
+              <span className="block text-xl font-heading font-semibold text-text">5-Star</span>
+              <span className="block text-sm text-muted">Client Reviews</span>
             </div>
           </div>
         </div>
@@ -59,10 +59,11 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            What Our <span className="text-primary">Clients Say</span>
+          <span className="inline-block text-xs font-mono text-accent tracking-widest uppercase mb-4">// testimonials</span>
+          <h2 className="text-3xl sm:text-4xl font-heading font-semibold text-text mb-4">
+            What Our <span className="text-accent">Clients Say</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-muted max-w-2xl mx-auto">
             Hear from business leaders who have partnered with Tech Sphere for their digital transformation.
           </p>
         </motion.div>
@@ -71,10 +72,10 @@ const Testimonials = () => {
         <div className="relative flex items-center justify-center">
           <button
             onClick={prev}
-            className="absolute left-0 z-10 bg-white rounded-full shadow-md p-2 hover:bg-primary/10 transition-colors"
+            className="absolute left-0 z-10 bg-background border border-steel/60 rounded-full p-2 hover:border-accent/60 transition-colors"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft className="h-6 w-6 text-primary" />
+            <ChevronLeft className="h-6 w-6 text-accent" />
           </button>
 
           <div className="w-full max-w-xl">
@@ -85,13 +86,13 @@ const Testimonials = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white p-10 rounded-2xl shadow-xl text-center"
+                className="bg-background p-10 rounded-2xl border border-steel/60 text-center"
               >
                 <div className="flex justify-center mb-4">
                   <img
                     src={testimonials[current].avatar}
                     alt={testimonials[current].name}
-                    className="w-16 h-16 rounded-full object-cover border-4 border-primary/20 shadow-md"
+                    className="w-16 h-16 rounded-full object-cover ring-2 ring-primary/40"
                   />
                 </div>
                 <div className="flex justify-center text-yellow-400 mb-4">
@@ -99,24 +100,24 @@ const Testimonials = () => {
                     <span key={i} className="text-xl">★</span>
                   ))}
                 </div>
-                <p className="text-gray-600 leading-relaxed italic mb-6">
+                <p className="text-muted leading-relaxed italic mb-6">
                   "{testimonials[current].testimonial}"
                 </p>
-                <h4 className="font-bold text-gray-900 text-lg">
+                <h4 className="font-heading font-semibold text-text text-lg">
                   {testimonials[current].name}
                 </h4>
-                <p className="text-sm text-gray-600">{testimonials[current].position}</p>
-                <p className="text-sm text-primary">{testimonials[current].company}</p>
+                <p className="text-sm text-muted">{testimonials[current].position}</p>
+                <p className="text-sm text-accent font-mono">{testimonials[current].company}</p>
               </motion.div>
             </AnimatePresence>
           </div>
 
           <button
             onClick={next}
-            className="absolute right-0 z-10 bg-white rounded-full shadow-md p-2 hover:bg-primary/10 transition-colors"
+            className="absolute right-0 z-10 bg-background border border-steel/60 rounded-full p-2 hover:border-accent/60 transition-colors"
             aria-label="Next testimonial"
           >
-            <ChevronRight className="h-6 w-6 text-primary" />
+            <ChevronRight className="h-6 w-6 text-accent" />
           </button>
         </div>
 
@@ -126,8 +127,8 @@ const Testimonials = () => {
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                idx === current ? "bg-primary" : "bg-primary/20"
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                idx === current ? "bg-accent" : "bg-steel"
               }`}
               aria-label={`Go to testimonial ${idx + 1}`}
             />

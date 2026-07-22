@@ -22,21 +22,21 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
-				heading: ['Montserrat', 'Inter', 'sans-serif'],
-				mono: ['Fira Mono', 'monospace'],
+				heading: ['Space Grotesk', 'Inter', 'sans-serif'],
+				mono: ['JetBrains Mono', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: {
-					DEFAULT: '#F5F7FA',
+					DEFAULT: '#060B18',
 				},
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#1A237E',
-					dark: '#006c99',
-					light: '#4dd0ff',
+					DEFAULT: '#4C6FFF',
+					dark: '#3450DB',
+					light: '#8AA3FF',
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
@@ -48,11 +48,11 @@ export default {
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
 				muted: {
-					DEFAULT: '#A0AEC0',
+					DEFAULT: '#8C9BC4',
 					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
-					DEFAULT: '#00B8D9',
+					DEFAULT: '#49E0FF',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
 				popover: {
@@ -74,10 +74,13 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				surface: {
-					DEFAULT: '#FFFFFF',
+					DEFAULT: '#0E1730',
+				},
+				steel: {
+					DEFAULT: '#1B2745',
 				},
 				text: {
-					DEFAULT: '#22223B',
+					DEFAULT: '#E8EDFB',
 				},
 				success: {
 					DEFAULT: '#2DD4BF',
@@ -86,16 +89,16 @@ export default {
 					DEFAULT: '#F59E42',
 				},
 				blue: {
-					50: "#e6f7ff",
-					100: "#b3eaff",
-					200: "#80ddff",
-					300: "#4dd0ff",
-					400: "#1ac3ff",
-					500: "#00b6ff",
-					600: "#0091cc",
-					700: "#006c99",
-					800: "#004766",
-					900: "#002233",
+					50: "#EEF1FF",
+					100: "#D9DFFF",
+					200: "#B3C0FF",
+					300: "#8AA3FF",
+					400: "#6B8AFF",
+					500: "#4C6FFF",
+					600: "#3450DB",
+					700: "#2638A8",
+					800: "#1A2775",
+					900: "#0F1747",
 				},
 			},
 			borderRadius: {

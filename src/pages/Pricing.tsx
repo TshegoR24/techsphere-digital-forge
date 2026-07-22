@@ -1,47 +1,58 @@
-const EXCHANGE_RATE_ZAR_PER_USD = 18.5; // Indicative; adjust as needed
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 const formatZAR = (amountZar: number) =>
   `R ${Math.round(amountZar).toLocaleString("en-ZA")}`;
 
-const Pricing = () => {
-  const starterUsd = 1499;
-  const growthUsd = 4999;
-  const vatRate = 0.15; // South Africa VAT (if applicable)
+// VAT is included in every displayed price but not itemized on the page.
+const VAT_RATE = 0.15;
+const withVatRounded = (baseZar: number) =>
+  Math.round((baseZar * (1 + VAT_RATE)) / 1000) * 1000;
 
-  const starterZar = starterUsd * EXCHANGE_RATE_ZAR_PER_USD;
-  const growthZar = growthUsd * EXCHANGE_RATE_ZAR_PER_USD;
-  const starterVat = starterZar * vatRate;
-  const growthVat = growthZar * vatRate;
+const Pricing = () => {
+  // Base rates set directly in ZAR, benchmarked against the South African
+  // small-agency market rather than converted from a USD list price.
+  const landingZar = withVatRounded(5000);
+  const starterZar = withVatRounded(8000);
+  const growthZar = withVatRounded(18000);
 
   return (
-    <div className="min-h-screen px-6 py-16 max-w-4xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Pricing</h1>
-      <p className="text-primary/80 mb-8">
-        Transparent pricing with indicative rates in South African Rand (ZAR). Final quotes are based on confirmed scope. Prices shown include VAT where applicable. We accept Visa, Mastercard, and bank transfer via Paystack.
+    <div className="min-h-screen bg-background">
+    <Navigation />
+    <div className="px-6 pt-32 pb-16 max-w-4xl mx-auto">
+      <span className="inline-block text-xs font-mono text-accent tracking-widest uppercase mb-4">// pricing</span>
+      <h1 className="text-3xl sm:text-4xl font-heading font-semibold text-text mb-6">Pricing</h1>
+      <p className="text-muted mb-10 leading-relaxed">
+        Transparent pricing with indicative rates in South African Rand (ZAR). Final quotes are based on confirmed scope. We accept Visa, Mastercard, and bank transfer via Paystack.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="border rounded-lg p-6">
-          <h2 className="text-xl font-semibold mb-2">Starter</h2>
-          <p className="text-primary/80 mb-4">Ideal for small sites and MVPs.</p>
-          <p className="text-3xl font-bold">{formatZAR(starterZar + starterVat)} <span className="text-base font-medium align-middle">incl. VAT</span></p>
-          <p className="text-primary/60 mt-1 text-sm">Excl. VAT: {formatZAR(starterZar)} | VAT (15%): {formatZAR(starterVat)}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="bg-surface border border-steel/60 rounded-2xl p-6">
+          <h2 className="text-xl font-heading font-semibold text-text mb-2">Landing Page</h2>
+          <p className="text-muted mb-4">A single focused page to launch fast.</p>
+          <p className="text-3xl font-heading font-semibold text-text">{formatZAR(landingZar)}</p>
         </div>
-        <div className="border rounded-lg p-6">
-          <h2 className="text-xl font-semibold mb-2">Growth</h2>
-          <p className="text-primary/80 mb-4">For growing businesses and apps.</p>
-          <p className="text-3xl font-bold">{formatZAR(growthZar + growthVat)} <span className="text-base font-medium align-middle">incl. VAT</span></p>
-          <p className="text-primary/60 mt-1 text-sm">Excl. VAT: {formatZAR(growthZar)} | VAT (15%): {formatZAR(growthVat)}</p>
+        <div className="bg-surface border border-steel/60 rounded-2xl p-6">
+          <h2 className="text-xl font-heading font-semibold text-text mb-2">Starter</h2>
+          <p className="text-muted mb-4">Ideal for small business websites and simple MVPs.</p>
+          <p className="text-3xl font-heading font-semibold text-text">From {formatZAR(starterZar)}</p>
         </div>
-        <div className="border rounded-lg p-6">
-          <h2 className="text-xl font-semibold mb-2">Enterprise</h2>
-          <p className="text-primary/80 mb-4">Custom solutions and integrations.</p>
-          <p className="text-3xl font-bold">Custom</p>
+        <div className="bg-surface border border-primary/50 rounded-2xl p-6 glow-sphere">
+          <h2 className="text-xl font-heading font-semibold text-text mb-2">Growth</h2>
+          <p className="text-muted mb-4">Multi-page business websites with custom features.</p>
+          <p className="text-3xl font-heading font-semibold text-text">From {formatZAR(growthZar)}</p>
+        </div>
+        <div className="bg-surface border border-steel/60 rounded-2xl p-6">
+          <h2 className="text-xl font-heading font-semibold text-text mb-2">Enterprise</h2>
+          <p className="text-muted mb-4">Custom software and system integrations.</p>
+          <p className="text-3xl font-heading font-semibold text-text">Custom</p>
         </div>
       </div>
-      <div className="bg-muted border rounded-lg p-4 mt-10 text-sm text-primary/80">
-        <p className="mb-2"><span className="font-semibold">Notes:</span> Prices are indicative and subject to a detailed scope of work. Exchange rate used: {EXCHANGE_RATE_ZAR_PER_USD}:1 USD (for display only).</p>
+      <div className="bg-surface border border-steel/60 rounded-2xl p-6 mt-10 text-sm text-muted">
+        <p className="mb-2"><span className="font-semibold text-text">Notes:</span> Prices are indicative and subject to a detailed scope of work.</p>
         <p>Accepted payment methods: Visa, Mastercard, bank transfer via Paystack. No hidden fees; any third-party costs (domains, hosting, licenses) are quoted separately.</p>
       </div>
+    </div>
+    <Footer />
     </div>
   );
 };
