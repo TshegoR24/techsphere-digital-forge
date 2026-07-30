@@ -7,7 +7,7 @@ const faqs = [
   },
   {
     q: "Who will I work with?",
-    a: "You'll work directly with our founder, Tshegofats Sekhotha, ensuring clear communication and personal attention.",
+    a: "You'll work directly with our founder, Tshegofatso Sekhotha, ensuring clear communication and personal attention.",
   },
   {
     q: "How long does a typical project take?",

@@ -32,10 +32,10 @@ const MeetTheFounder = () => (
             <ellipse cx="40" cy="64" rx="24" ry="12" fill="#F5F7FA" />
           </svg>
         </div>
-        <h3 className="text-2xl font-heading font-bold text-primary mb-1">Tshegofats Sekhotha</h3>
+        <h3 className="text-2xl font-heading font-bold text-primary mb-1">Tshegofatso Sekhotha</h3>
         <p className="text-accent font-semibold mb-4">Founder & Lead Developer</p>
         <p className="text-text font-sans text-center max-w-xl">
-          With a passion for technology and a commitment to client success, Tshegofats brings a hands-on, personal approach to every project. From strategy to launch, you'll work directly with the founder to ensure your vision becomes reality.
+          With a passion for technology and a commitment to client success, Tshegofatso brings a hands-on, personal approach to every project. From strategy to launch, you'll work directly with the founder to ensure your vision becomes reality.
         </p>
       </motion.div>
     </div>
