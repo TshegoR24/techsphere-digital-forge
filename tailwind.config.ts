@@ -21,8 +21,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
-				heading: ['Space Grotesk', 'Inter', 'sans-serif'],
+				sans: ['Hanken Grotesk', 'sans-serif'],
+				heading: ['Bricolage Grotesque', 'Hanken Grotesk', 'sans-serif'],
 				mono: ['JetBrains Mono', 'monospace'],
 			},
 			colors: {
