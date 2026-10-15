@@ -12,9 +12,9 @@ const withVatRounded = (baseZar: number) =>
 const Pricing = () => {
   // Base rates set directly in ZAR, benchmarked against the South African
   // small-agency market rather than converted from a USD list price.
-  const landingZar = withVatRounded(5000);
-  const starterZar = withVatRounded(8000);
-  const growthZar = withVatRounded(18000);
+  const landingZar = 2000;
+  const starterZar = 5000;
+  const growthZar = 15000;
 
   return (
     <div className="min-h-screen bg-background">
