@@ -3,14 +3,6 @@ import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "Seamless Travel",
-    client: "Travel Platform",
-    description: "A modern travel booking platform with seamless user experience, real-time booking capabilities, and comprehensive travel management features.",
-    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=500&h=300&fit=crop",
-    alt: "Seamless Travel platform screenshot",
-    link: "https://www.seamlesstravel.co.za",
-  },
-  {
     title: "Sterring",
     client: "Streaming Platform",
     description: "A Netflix-style streaming platform for South African film, TV, and anime — browse local titles, watch trailers, and build a personal watchlist.",
